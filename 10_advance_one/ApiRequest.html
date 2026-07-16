@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    <img src="" class="photo" style="height: 210px; width: 200px;"></img>
+    <div class="followers" style="font-size: 50px;"></div>
+</body>
+<script>
+    const requestUrl='https://api.github.com/users/hiteshchoudhary'
+    const photo=document.querySelector('.photo')
+    const followers=document.querySelector('.followers');
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET',requestUrl);
+    xhr.onreadystatechange=function(){
+        console.log(xhr.readyState);
+        if (xhr.readyState===4) {
+            const data=JSON.parse(this.responseText)
+            console.log(typeof data);
+            console.log(data);
+            photo.src=data.avatar_url
+            followers.innerHTML=`Followers: ${data.followers}`
+            
+        }
+    }
+    xhr.send()
+    // photo.innerHTML=url;
+    // followers.innerHTML=f;
+</script>
+</html>

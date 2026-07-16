@@ -1,0 +1,24 @@
+-- your code goes here
+
+CREATE TABLE user(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  email VARCHAR(255) UNIQUE,
+  password VARCHAR(256)
+);
+INSERT INTO user(id,name,email,password) VALUES(1,"abc","abc@gmail.com","123");
+INSERT INTO user(id,name,email,password) VALUES(3,"abc","a@gmail.com","123");
+INSERT INTO user(id,name,email,password) VALUES(4,"abc","a.b.c@gmail.com","123");
+INSERT INTO user(id,name,email,password) VALUES(5,"abc","a.@gmail.com","123");
+INSERT INTO user(id,name,email,password) VALUES(6,"abc","hello@gmail.com","123");
+INSERT INTO user(id,name,email,password) VALUES(2,"xyz","xyz@gmail.com","123");
+
+UPDATE user SET email="chai@gmail.com" WHERE name="xyz";
+
+DELETE FROM user where name="xyz";
+
+-- DROP TABLE user;
+
+-- SELECT * FROM user WHERE name="abc";
+SELECT email FROM user where name="abc";
+-- SELECT * FROM user;

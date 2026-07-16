@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+// Left rotate the array by one place
+
+vector<int>arr={1,2,3,4,5}; // left rotate array 2,3,4,5,1
+//  Optimal TC-> O(N) SC->O(1)
+int temp=arr[0];
+int i;
+for(i=1;i<arr.size();i++)
+{
+    arr[i-1]=arr[i];
+}
+arr[arr.size()-1]=temp;
+for(auto it:arr)
+{
+    cout<<it<<endl;
+}
+}

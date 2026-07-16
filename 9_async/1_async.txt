@@ -1,0 +1,20 @@
+JavaScript
+	|	
+	Synchronous
+	Single Threaded
+
+Execution Context 	Default
+	|
+	Execution one line at a time
+	|->concole.log(1);
+	|->console.log(2);
+	|			each operation waits for the last one to complete before executing
+	|Call Stack Mmeory Heap
+
+
+Blocking code                    vs                 Non blocking code
+|						    |
+|					            |
+Block the flow of program			    Doest not block execution
+|						    |
+Read file sync					    Read file async

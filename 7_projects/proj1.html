@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color scheme switcher</title>
+</head>
+
+<body>
+    <h1>Color scheme switcher</h1>
+            <button class="button" id="grey" style="background-color: grey; height:60px; width:60px;"></button>
+            <button class="button" id="white" style="background-color:whitesmoke; height:60px; width:60px; "></button>
+            <button class="button" id="blue" style="background-color: blue; height:60px; width:60px; "></button>
+            <button class="button" id="yellow" style="background-color: yellow; height:60px; width:60px; "></button>
+            <button class="button" id="purple" style="background-color: purple; height:60px; width:60px; "></button>
+            <p>Clicking on one of the colors above change the background color of this page!</p>
+</body>
+<script>
+    const allButton = document.querySelectorAll(".button");
+    const body = document.querySelector("body");
+    allButton.forEach(function (button) {
+        console.log(button);
+        button.addEventListener("click", function (e) {
+            console.log(e);
+            console.log(e.target);
+            if (e.target.id === "grey") {
+                body.style.backgroundColor = "grey";
+            }
+            if (e.target.id === "white") {
+                body.style.backgroundColor = "whitesmoke"
+            }
+            if (e.target.id === "blue") {
+                body.style.backgroundColor = "blue"
+            }
+            if (e.target.id === "yellow") {
+                body.style.backgroundColor = "yellow"
+            }
+            if (e.target.id === "purple") {
+                body.style.backgroundColor = "purple"
+            }
+        });
+    })
+</script>
+
+</html>
