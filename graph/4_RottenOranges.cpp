@@ -5,7 +5,7 @@ int orangesRotting(vector<vectro<int>>&grid)
     int n=grid.size();
     int m=grid[0].size();
     // {{row,col},time}
-    queue<pair<int,int>>q;
+    queue<pair<pair<int,int>,int>>q;
     int vis[n][m];
     int contFresh=0;
     int i;
@@ -33,7 +33,7 @@ int orangesRotting(vector<vectro<int>>&grid)
     while(!q.empty())
     {
         int r=q.front().first.first;
-        int c=q.front.first.second;
+        int c=q.front().first.second;
         int t=q.front().second;
         time1=max(time1,t);
         q.pop();
@@ -41,7 +41,7 @@ int orangesRotting(vector<vectro<int>>&grid)
         {
                 int nrow=r+drow[i];
                 int ncol=c+dcol[i];
-                if(nrow>=0 && nrow<n && ncol>=0 && nrow<m && vis[nrow][ncol]!=2 && grid[nrow][ncol]==1)
+                if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && vis[nrow][ncol]!=2 && grid[nrow][ncol]==1)
                 {
                     q.push({{nrow,ncol},t+1});
                     vis[nrow][ncol]=2;
