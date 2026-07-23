@@ -1,4 +1,5 @@
 -- your code goes here
+-- your code goes here
 
 CREATE TABLE user(
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -6,19 +7,36 @@ CREATE TABLE user(
   email VARCHAR(255) UNIQUE,
   password VARCHAR(256)
 );
-INSERT INTO user(id,name,email,password) VALUES(1,"abc","abc@gmail.com","123");
-INSERT INTO user(id,name,email,password) VALUES(3,"abc","a@gmail.com","123");
-INSERT INTO user(id,name,email,password) VALUES(4,"abc","a.b.c@gmail.com","123");
-INSERT INTO user(id,name,email,password) VALUES(5,"abc","a.@gmail.com","123");
-INSERT INTO user(id,name,email,password) VALUES(6,"abc","hello@gmail.com","123");
-INSERT INTO user(id,name,email,password) VALUES(2,"xyz","xyz@gmail.com","123");
+INSERT INTO user(id,name,email,password) VALUES(1,"a","a@gmail.com","a");
+INSERT INTO user(id,name,email,password) VALUES(2,"b","b@gmail.com","b");
+INSERT INTO user(id,name,email,password) VALUES(3,"c","c@gmail.com","c");
+INSERT INTO user(id,name,email,password) VALUES(4,"d","d@gmail.com","d");
+INSERT INTO user(id,name,email,password) VALUES(5,"e","e@gmail.com","e");
+INSERT INTO user(id,name,email,password) VALUES(6,"f","f@gmail.com","f");
 
-UPDATE user SET email="chai@gmail.com" WHERE name="xyz";
+-- UPDATE user SET email="chai@gmail.com" WHERE name="xyz";
 
-DELETE FROM user where name="xyz";
+-- DELETE FROM user where name="xyz";
 
 -- DROP TABLE user;
 
--- SELECT * FROM user WHERE name="abc";
-SELECT email FROM user where name="abc";
+CREATE TABLE location(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+INSERT INTO location(id,name) VALUES(1,"Mumbai");
+INSERT INTO location(id,name) VALUES(2,"Ahmedabad");
+INSERT INTO location(id,name) VALUES(3,"Pune");
+INSERT INTO location(id,name) VALUES(4,"Mumbai");
+
 -- SELECT * FROM user;
+
+-- SELECT * FROM location;
+
+-- SELECT * FROM user INNER JOIN location WHERE user.id=location.id;
+
+CREATE INDEX idx ON user (name);
+
+SHOW INDEX FROM user;
+

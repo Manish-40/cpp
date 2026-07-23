@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Solution {
-public:
     void dfs(int row, int col, vector<vector<int>>& vis,
              vector<vector<char>>& mat, int deltarow[], int deltacol[]) {
 
@@ -65,7 +63,6 @@ public:
             }
         }
     }
-};
 int main() {
 	// your code goes here
 // 	Surrounded regions
