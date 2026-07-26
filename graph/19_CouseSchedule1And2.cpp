@@ -1,7 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int>toposort(int V,vector<int>adj[])
+vector<int>findOrder(int V,int m,vector<vector<int>>prerequisites)
 {
+    vector<int>adj[V];
+    for(auto it:prerequisites)
+    {
+        adj[it[1]].push_back(it[0]);
+    }
     int indegree[V]={0};
     int i;
     for(i=0;i<V;i++)
@@ -31,11 +36,12 @@ vector<int>toposort(int V,vector<int>adj[])
             indegree[it]--;
             if(indegree[it]==0) q.push(it);
         }
-        return topo;
     }
-}   
+    if(topo.size()==V) return topo;
+    return {};
+}
 int main() {
 	// your code goes here
-//  Topological sorting (kahn's algoritm /bfs)
-// TC->O(V+E) SC->O(N)+O(N)
+// 	Couser schedule 1 and 2 ma khali pair ne reverse karvanu che 0, 1 to 1 connected to 0
+
 }

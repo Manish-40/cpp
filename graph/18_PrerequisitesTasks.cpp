@@ -1,7 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int>toposort(int V,vector<int>adj[])
+bool ispossible(int V,vector<pair<int,int>>&prerequisites)
 {
+    vector<int>adj[V];
+    for(auto it:prerequisites)
+    {
+        adj[it.first].push_back(it.second);
+    }
     int indegree[V]={0};
     int i;
     for(i=0;i<V;i++)
@@ -31,11 +36,11 @@ vector<int>toposort(int V,vector<int>adj[])
             indegree[it]--;
             if(indegree[it]==0) q.push(it);
         }
-        return topo;
     }
-}   
+    if(topo.size()==V) return true;
+    return false;
+}
 int main() {
 	// your code goes here
-//  Topological sorting (kahn's algoritm /bfs)
-// TC->O(V+E) SC->O(N)+O(N)
+// pre requisite tasks
 }
