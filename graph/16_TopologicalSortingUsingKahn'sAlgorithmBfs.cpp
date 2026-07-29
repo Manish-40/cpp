@@ -31,8 +31,9 @@ vector<int>toposort(int V,vector<int>adj[])
             indegree[it]--;
             if(indegree[it]==0) q.push(it);
         }
-        return topo;
+        
     }
+    return topo;
 }   
 int main() {
 	// your code goes here
