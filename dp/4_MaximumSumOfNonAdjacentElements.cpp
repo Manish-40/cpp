@@ -2,7 +2,7 @@
 using namespace std;
 int f(int index,vector<int>&arr)
 {
-    if(index==0) return 0;
+    if(index==0) return arr[0];
     if(index<0) return 0;
     int pick=arr[index]+f(index-2,arr);
     int notPick=0+f(index-1,arr);
@@ -21,7 +21,7 @@ int main() {
 using namespace std;
 int f(int index,vector<int>&arr,vector<int>&dp)
 {
-    if(index==0) return 0;
+    if(index==0) return arr[0];
     if(index<0) return 0;
     if(dp[index]!=-1) return dp[index];
     int pick=arr[index]+f(index-2,arr,dp);
@@ -49,7 +49,7 @@ int main() {
     vector<int>arr={1,2,3,4,5};
     int n=arr.size();
     vector<int>dp(n,-1);
-    dp[0]=0;
+    dp[0]=arr[0];
     int neg=0;
     int take;
     int notTake;
