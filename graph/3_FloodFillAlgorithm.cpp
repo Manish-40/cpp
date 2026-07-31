@@ -6,11 +6,11 @@ void dfs(int row,int col,vector<vector<int>>&ans,vector<vector<int>>&image,int n
     int i;
     int n=image.size();
     int m=image[0].size();
-    for(i=0;i<=4;i++)
+    for(i=0;i<4;i++)
     {
         int nrow=row+deltarow[i];
         int ncol=col+deltacol[i];
-        if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && image[nrow][ncol]==iniColor && image[nrow][ncol]!=newColor)
+        if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && image[nrow][ncol]==iniColor && ans[nrow][ncol]!=newColor)
         {
             dfs(nrow,ncol,ans,image,newColor,deltarow,deltacol,iniColor);
         }
@@ -20,9 +20,11 @@ vector<vector<int>>floodFill(vector<vector<int>>&image,int sr,int sc,int newColo
 {
     int iniColor=image[sr][sc];
     vector<vector<int>>ans=image;
+    if(inicolor==color) return image;
     int deltarow[]={-1,0,+1,0};
     int deltacol[]={0,+1,0,-1};
     dfs(sr,sc,ans,image,newColor,deltarow,deltacol,iniColor);
+    return ans;
 }
 int main() {
 	// your code goes here
