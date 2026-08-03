@@ -88,11 +88,11 @@ int minSumPath(vector<vector<int>>&grid)
             {
                 int up=grid[i][j];
                 if(i>0) up+=dp[i-1][j];
-                else up+=1e9;
+                else up+=1e9; // aa if(i<0) return 1e9 e che
                 
                 int left=grid[i][j];
                 if(j>0) left+=dp[i][j-1];
-                else left+=1e9;
+                else left+=1e9; // aa if(i<0) return 1e9 e che
                 
                 dp[i][j]=min(left,up);
             }
@@ -104,3 +104,46 @@ int main() {
 	// your code goes her
 // 	tabulation
 }
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int minSumPath(vector<vector<int>>&grid)
+{
+    int n=grid.size();
+    int m=grid[0].size();
+    vector<vector<int>>dp(n,vector<int>(m,0));
+    int i;
+    int j;
+    vector<int>prev(m,0);
+    for(i=0;i<n;i++)
+    {
+        // i==n
+        vector<int>cur(m,0);
+        for(j=0;j<m;j++)
+        {
+            if(i==0 && j==0) cur[j]=grid[i][j];
+            else
+            {
+                int up=grid[i][j];
+                // requiring previous row's j column
+                if(i>0) up+=prev[j];
+                else up+=1e9; // aa if(i<0) return 1e9 e che
+                
+                int left=grid[i][j];
+                // requiring row's j-1 column
+                if(j>0) left+=cur[j-1];
+                else left+=1e9; // aa if(i<0) return 1e9 e che
+                
+                cur[j]=min(left,up);
+            }
+        }
+        prev=cur;
+    }
+    return prev[m-1];
+}
+int main() {
+	// your code goes her
+// 	space optimization
+}
+
