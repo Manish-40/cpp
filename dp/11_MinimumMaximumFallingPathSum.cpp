@@ -133,7 +133,7 @@ int getmaxpathsum(vector<vector<int>>&matrix)
             if(j-1>=0)leftDigonal+=prev[j-1];
             else leftDigonal+=-1e8;
             
-            int rightDigonal=matrix[i]j]
+            int rightDigonal=matrix[i][j];
             if(j+1<m)rightDigonal+=prev[j+1];
             else rightDigonal+=-1e8;
             
