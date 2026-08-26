@@ -89,3 +89,40 @@ for(index=1;index<n;index++)
 }
 cout<<dp[n-1][target]<<endl;
 }
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    // your code goes here
+// DP on subsequences
+// space tabulation TC->O(n*target) SC->O(target)
+vector<int>arr{2,3,1,1};
+int target=4;
+int n=arr.size();
+
+vector<bool>prev(target+1,0);
+vector<bool>cur(target+1,0);
+prev[0]=cur[0]=true;
+
+prev[arr[0]]=true;
+
+int index;
+int j;
+for(index=1;index<n;index++)
+{
+    for(j=1;j<=target;j++)
+    {
+        bool nottake=prev[target];
+        bool take=false;
+    
+        if(target>=arr[index])
+        {
+            take=prev[target-arr[index]];
+        }
+        cur[target]=(take)|(nottake);
+    }
+    prev=cur;
+}
+cout<<prev[target]<<endl;
+}
