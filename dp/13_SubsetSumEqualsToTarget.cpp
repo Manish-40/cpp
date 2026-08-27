@@ -96,7 +96,7 @@ using namespace std;
 int main() {
     // your code goes here
 // DP on subsequences
-// space tabulation TC->O(n*target) SC->O(target)
+// space optimization TC->O(n*target) SC->O(target)
 vector<int>arr{2,3,1,1};
 int target=4;
 int n=arr.size();
@@ -105,7 +105,7 @@ vector<bool>prev(target+1,0);
 vector<bool>cur(target+1,0);
 prev[0]=cur[0]=true;
 
-prev[arr[0]]=true;
+if(arr[0]<=target) prev[arr[0]]=true;
 
 int index;
 int j;
